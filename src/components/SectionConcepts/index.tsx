@@ -3,16 +3,16 @@ import React from 'react'
 import Container from 'components/Container'
 import Heading from 'components/Heading'
 
-import content from './content'
 import * as S from './styles'
+import { ConceptProps } from 'types/api'
 
-const SectionConcepts = () => (
+const SectionConcepts = ({ title, concepts }: ConceptProps) => (
   <Container>
     <S.Box>
-      <Heading lineBottom>Conceitos que você irá aprender</Heading>
+      <Heading lineBottom>{title}</Heading>
       <S.List>
-        {content.map((item) => (
-          <S.Item key={item}>{item}</S.Item>
+        {concepts.map(({ conceptName }) => (
+          <S.Item key={conceptName}>{conceptName}</S.Item>
         ))}
       </S.List>
     </S.Box>
